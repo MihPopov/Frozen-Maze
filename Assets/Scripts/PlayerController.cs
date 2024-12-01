@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public GameObject tutorialButton;
     public GameObject[] hearts;
     public GameObject heartsPanel;
+    public GameObject moveButtonsVar1;
+    public GameObject moveButtonsVar2;
     public AudioSource victorySound;
     public AudioSource holesSound;
     public AudioSource gameOverSound;
@@ -32,6 +34,16 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         allGifts.text = gifts.ToString();
+        if (PlayerPrefs.GetInt("MoveButtonsVariant", 1) == 1)
+        {
+            moveButtonsVar1.SetActive(true);
+            moveButtonsVar2.SetActive(false);
+        }
+        else
+        {
+            moveButtonsVar1.SetActive(false);
+            moveButtonsVar2.SetActive(true);
+        }
     }
 
     public void MoveUp()
